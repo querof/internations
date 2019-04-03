@@ -80,7 +80,7 @@ class UsersController extends AbstractController
 
         return $ContentResponse->response(200, $users, $request->get('contentType'));
     }
-    
+
     /**
      ** @Route("/v1/users/{id}", name="user_find", methods={"GET"})
      *
@@ -127,6 +127,8 @@ class UsersController extends AbstractController
         $user->setName($request->get('name'));
         $user->setLastName($request->get('lastname'));
         $user->setEmail($request->get('email'));
+        $rol = json_decode($request->get('roles'), true);
+        $user->setRoles($rol);
         $user->setPassword($passwordEncoder->encodePassword($user, $request->get('password')));
         $user->setApiToken(Auth::SignIn(['email' => $request->get('email'),'id' => rand(0, 9999),]));
         $em->persist($user);
@@ -172,9 +174,9 @@ class UsersController extends AbstractController
             $user->setName($request->get('name')??$user->getName());
             $user->setLastName($request->get('lastname')??$user->getLastName());
             $user->setEmail($request->get('email')??$user->getEmail());
-            $user->setPassword($passwordEncoder->encodePassword($user, $request->get('password'))??$user->getPassword());
-            $user->setApiToken(Auth::SignIn(['email' => $request->get('email'),'id' => rand(0, 9999),])??$user->getApiToken());
-
+            $rol = json_decode($request->get('roles'), true);
+            $user->setRoles($rol??$user->getRoles());
+            $user->setPassword($passwordEncoder->encodePassword($user, $request->get('password')));
             $em->persist($user);
             $em->flush();
 

@@ -33,7 +33,7 @@ class UsersControllerTest extends WebTestCase
     {
         $numberRnd = rand(0, 9999);
 
-        $response = $this->http->request('POST', 'users', ['headers' => ['X-AUTH-TOKEN' => $this->token],'query' => ['name' => 'TestName_'.$numberRnd,'lastname' => 'TestLatsName_'.$numberRnd,'email' => 'TestEmail_'.$numberRnd.'@server.com','password' => 'passwordTest']]);
+        $response = $this->http->request('POST', 'users', ['headers' => ['X-AUTH-TOKEN' => $this->token],'query' => ['name' => 'TestName_'.$numberRnd,'lastname' => 'TestLatsName_'.$numberRnd,'email' => 'TestEmail_'.$numberRnd.'@server.com','roles' => '{"0":"ROLE_ADMIN"}','password' => 'passwordTest']]);
 
         $body = $response->getBody();
         $data = json_decode($body->getContents(), true);
@@ -50,7 +50,7 @@ class UsersControllerTest extends WebTestCase
     {
         $numberRnd = rand(0, 9999);
 
-        $response = $this->http->request('POST', 'users', ['headers' => ['X-AUTH-TOKEN' => $this->token],'query' => ['name' => 'TestName_'.$numberRnd,'lastname' => 'TestLatsName_'.$numberRnd,'email' => 'TestEmail_'.$numberRnd.'@server.com','password' => 'passwordTest']]);
+        $response = $this->http->request('POST', 'users', ['headers' => ['X-AUTH-TOKEN' => $this->token],'query' => ['name' => 'TestName_'.$numberRnd,'lastname' => 'TestLatsName_'.$numberRnd,'email' => 'TestEmail_'.$numberRnd.'@server.com','roles' => '{"0":"ROLE_ADMIN"}','password' => 'passwordTest']]);
 
         $this->assertEquals(201, $response->getStatusCode());
     }
@@ -59,7 +59,7 @@ class UsersControllerTest extends WebTestCase
     {
         $numberRnd = rand(0, 9999);
 
-        $response = $this->http->request('POST', 'users', ['headers' => ['X-AUTH-TOKEN' => $this->token],'query' => ['name' => 'TestName_'.$numberRnd,'lastname' => 'TestLatsName_'.$numberRnd,'email' => 'TestEmail_'.$numberRnd.'@server.com','password' => 'passwordTest']]);
+        $response = $this->http->request('POST', 'users', ['headers' => ['X-AUTH-TOKEN' => $this->token],'query' => ['name' => 'TestName_'.$numberRnd,'lastname' => 'TestLatsName_'.$numberRnd,'email' => 'TestEmail_'.$numberRnd.'@server.com','roles' => '{"0":"ROLE_ADMIN"}' , 'password' => 'passwordTest']]);
 
         $body = $response->getBody();
         $data = json_decode($body->getContents(), true);
@@ -73,7 +73,7 @@ class UsersControllerTest extends WebTestCase
     {
         $numberRnd = rand(0, 9999);
 
-        $response = $this->http->request('POST', 'users', ['headers' => ['X-AUTH-TOKEN' => $this->token],'query' => ['name' => 'TestName_'.$numberRnd,'lastname' => 'TestLatsName_'.$numberRnd,'email' => 'TestEmail_'.$numberRnd.'@server.com','password' => 'passwordTest']
+        $response = $this->http->request('POST', 'users', ['headers' => ['X-AUTH-TOKEN' => $this->token],'query' => ['name' => 'TestName_'.$numberRnd,'lastname' => 'TestLatsName_'.$numberRnd,'email' => 'TestEmail_'.$numberRnd.'@server.com','roles' => '{"0":"ROLE_ADMIN"}','password' => 'passwordTest']
         ]);
 
         $body = $response->getBody();
