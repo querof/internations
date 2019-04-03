@@ -21,9 +21,10 @@ User managment system, JWT based auth. With user, groups and userGroups CRUD act
 
 -   Run composer to install dependencies:  composer install
 -   Run sql script: db/internations.sql
--   Configure database parameters in .env file
+-   Configure database parameters in .env file.
+-   Configure the server base route in test files's setUp function: _** $this->http = new Client(['base_uri' => '127.0.0.1:8000/v1/']); ** ._
 -   Run fixtures: bin/console doctrine:fixtures:load
--   Start symfony server: bin/console serve:start.
+-   Start symfony server: bin/console server:start.
 -   Enjoy :-).
 
 ## Database Schema Script (Mysql) creation DML Script:
