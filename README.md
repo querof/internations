@@ -52,7 +52,7 @@ Located in: ./db/internations.sql
 
 ## Domain model
 
-Location: Doc/UML.pdf
+Location: doc/UML.pdf
 
 ## Test
 

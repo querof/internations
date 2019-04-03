@@ -19,7 +19,7 @@
         "symfony/security-bundle": "4.1.*",
         "symfony/serializer": "*",
         "symfony/yaml": "*",
-        "guzzlehttp/guzzle": "*",
+        "guzzlehttp/guzzle": "*"
     },
     "require-dev": {
         "sensiolabs/security-checker": "^5.0",
