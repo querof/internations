@@ -21,6 +21,7 @@ User managment system, JWT based auth. With user, groups and userGroups CRUD act
 
 -   Run composer to install dependencies:  composer install
 -   Run sql script: db/internations.sql
+-   Configure database parameters in .env file
 -   Run fixtures: bin/console doctrine:fixtures:load
 -   Start symfony server: bin/console serve:start.
 -   Enjoy :-).
