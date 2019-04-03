@@ -1,0 +1,23 @@
+security:
+    encoders:
+        App\Entity\Users:
+            algorithm: bcrypt
+            cost: 12
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\Users
+                property: email
+    firewalls:
+        secured_area:
+          pattern: /v1/login
+          anonymous:  ~
+        test:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            guard:
+                authenticators:
+                    - App\Security\TokenAuthenticator
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
